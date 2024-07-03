@@ -6,7 +6,9 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://localhost:3000/api/v1/users/login',
+      //这里由于API和website使用同样的URL直接删除localhost就可以发布了
+      url: '/api/v1/users/login',
+      // url: 'http://localhost:3000/api/v1/users/login',
       data: {
         email,
         password,
@@ -28,7 +30,8 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: 'http://localhost:3000/api/v1/users/logout',
+      url: '/api/v1/users/logout',
+      // url: 'http://localhost:3000/api/v1/users/logout',
     });
 
     if (res.data.status === 'success') location.reload(true);
